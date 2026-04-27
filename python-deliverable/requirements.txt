@@ -1,0 +1,10 @@
+# SentnelOps anomaly detector — Python deps
+# The rule-based approach has ZERO dependencies (pure stdlib).
+# These extras unlock the bonus modes:
+
+# ML mode (--approach ml) and --compare
+scikit-learn>=1.4
+numpy>=1.26
+
+# LLM / hybrid mode (--approach llm | hybrid) — Groq free tier
+groq>=0.11

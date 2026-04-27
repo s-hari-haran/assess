@@ -1,0 +1,65 @@
+[
+  {
+    "resource_id": "i-1",
+    "cpu_avg": 2,
+    "cpu_p95": 5,
+    "memory_avg": 70,
+    "network_pct": 10,
+    "internet_facing": true,
+    "identity_attached": true
+  },
+  {
+    "resource_id": "i-2",
+    "cpu_avg": 85,
+    "cpu_p95": 98,
+    "memory_avg": 40,
+    "network_pct": 60,
+    "internet_facing": false,
+    "identity_attached": false
+  },
+  {
+    "resource_id": "i-3",
+    "cpu_avg": 1,
+    "cpu_p95": 3,
+    "memory_avg": 4,
+    "network_pct": 1,
+    "internet_facing": false,
+    "identity_attached": false
+  },
+  {
+    "resource_id": "i-4",
+    "cpu_avg": 45,
+    "cpu_p95": 70,
+    "memory_avg": 92,
+    "network_pct": 30,
+    "internet_facing": true,
+    "identity_attached": true
+  },
+  {
+    "resource_id": "i-5",
+    "cpu_avg": 30,
+    "cpu_p95": 55,
+    "memory_avg": 50,
+    "network_pct": 95,
+    "internet_facing": true,
+    "identity_attached": false
+  },
+  {
+    "resource_id": "i-6",
+    "cpu_avg": 50,
+    "cpu_p95": 65,
+    "memory_avg": 55,
+    "network_pct": 40,
+    "internet_facing": false,
+    "identity_attached": true
+  },
+  {
+    "resource_id": "i-7",
+    "cpu_avg": 8,
+    "cpu_p95": 92,
+    "memory_avg": 35,
+    "network_pct": 20,
+    "internet_facing": true,
+    "identity_attached": true
+  }
+]
