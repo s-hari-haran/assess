@@ -1,0 +1,95 @@
+[
+  {
+    "resource_id": "i-1",
+    "is_anomalous": true,
+    "anomaly_type": "over_provisioned",
+    "reason": "CPU is consistently low (avg=2.0%, p95=5.0%) while the instance is otherwise active",
+    "suggested_action": "Downsize to a smaller instance class (e.g., one tier down) and re-evaluate after 7 days",
+    "confidence": 0.78,
+    "severity": "medium",
+    "approach": "rule_based",
+    "signals": [
+      "CPU is consistently low (avg=2.0%, p95=5.0%) while the instance is otherwise active"
+    ],
+    "security_note": "Internet-facing resource with an identity attached \u2014 a compromise could pivot into the cloud account"
+  },
+  {
+    "resource_id": "i-2",
+    "is_anomalous": true,
+    "anomaly_type": "under_provisioned",
+    "reason": "Sustained CPU saturation (avg=85.0%, p95=98.0%) \u2014 workload likely throttled",
+    "suggested_action": "Scale up the instance class or add horizontal capacity behind a load balancer",
+    "confidence": 0.9,
+    "severity": "critical",
+    "approach": "rule_based",
+    "signals": [
+      "Sustained CPU saturation (avg=85.0%, p95=98.0%) \u2014 workload likely throttled"
+    ]
+  },
+  {
+    "resource_id": "i-3",
+    "is_anomalous": true,
+    "anomaly_type": "idle",
+    "reason": "Resource appears idle (cpu_avg=1.0%, memory_avg=4.0%, network_pct=1.0%)",
+    "suggested_action": "Investigate ownership and consider terminating or hibernating the instance",
+    "confidence": 0.9,
+    "severity": "medium",
+    "approach": "rule_based",
+    "signals": [
+      "Resource appears idle (cpu_avg=1.0%, memory_avg=4.0%, network_pct=1.0%)"
+    ]
+  },
+  {
+    "resource_id": "i-4",
+    "is_anomalous": true,
+    "anomaly_type": "memory_pressure",
+    "reason": "High memory utilization (memory_avg=92.0%) \u2014 risk of OOM",
+    "suggested_action": "Move to a memory-optimized instance class or investigate a memory leak",
+    "confidence": 0.8,
+    "severity": "high",
+    "approach": "rule_based",
+    "signals": [
+      "High memory utilization (memory_avg=92.0%) \u2014 risk of OOM"
+    ],
+    "security_note": "Internet-facing resource with an identity attached \u2014 a compromise could pivot into the cloud account"
+  },
+  {
+    "resource_id": "i-5",
+    "is_anomalous": true,
+    "anomaly_type": "network_saturation",
+    "reason": "Network near saturation (network_pct=95.0%)",
+    "suggested_action": "Upgrade network tier, enable enhanced networking, or distribute load across instances",
+    "confidence": 0.85,
+    "severity": "medium",
+    "approach": "rule_based",
+    "signals": [
+      "Network near saturation (network_pct=95.0%)"
+    ],
+    "security_note": "Public resource at network saturation \u2014 possible scraping, DoS target, or data exfiltration"
+  },
+  {
+    "resource_id": "i-6",
+    "is_anomalous": false,
+    "anomaly_type": "balanced",
+    "reason": "Utilization looks healthy across CPU (avg=50.0%, p95=65.0%), memory (55.0%), and network (40.0%)",
+    "suggested_action": "No action required \u2014 utilization looks healthy",
+    "confidence": 0.7,
+    "severity": "low",
+    "approach": "rule_based",
+    "signals": []
+  },
+  {
+    "resource_id": "i-7",
+    "is_anomalous": true,
+    "anomaly_type": "cpu_spiking",
+    "reason": "Bursty CPU pattern (avg=8.0%, p95=92.0%) \u2014 short spikes against a calm baseline",
+    "suggested_action": "Move to a burstable instance family or enable autoscaling on CPU p95",
+    "confidence": 0.7,
+    "severity": "medium",
+    "approach": "rule_based",
+    "signals": [
+      "Bursty CPU pattern (avg=8.0%, p95=92.0%) \u2014 short spikes against a calm baseline"
+    ],
+    "security_note": "Internet-facing resource with an identity attached \u2014 a compromise could pivot into the cloud account"
+  }
+]
