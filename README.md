@@ -24,11 +24,15 @@ and labels each row `all_agree` or `disagreement` — that's the bonus
 
 ```
 .
-├── anomaly_detector.py        # the entire deliverable, runnable as a CLI
-├── sample_resources.json      # 7 hand-picked test cases
-├── requirements.txt           # optional deps for ML / LLM modes
-├── .env.example               # copy to .env and add your GROQ_API_KEY
-├── .devcontainer/             # GitHub Codespaces config (Python 3.11)
+├── anomaly_detector.py             # the entire deliverable, runnable as a CLI
+├── sample_resources.json           # 7 hand-picked test cases
+├── sample_output_rule_based.json   # sample output for the rule-based approach
+├── sample_output_compare.json      # sample output for --compare mode
+├── requirements.txt                # optional deps for ML / LLM modes
+├── .env.example                    # copy to .env and add your GROQ_API_KEY
+├── .devcontainer/                  # GitHub Codespaces config (Python 3.11)
+├── devcontainer.json               # dev container configuration (root)
+├── .gitignore
 └── README.md
 ```
 
@@ -300,7 +304,7 @@ These are the verbatim outputs of `python3 anomaly_detector.py`:
     "security_note": "Internet-facing resource with an identity attached — a compromise could pivot into the cloud account"
   },
   {
-    "resource_id": "i-5",
+    "resource_id": "i--5",
     "is_anomalous": true,
     "anomaly_type": "network_saturation",
     "reason": "Network near saturation (network_pct=95.0%)",
