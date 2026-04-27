@@ -280,12 +280,11 @@ These are the verbatim outputs of `python3 anomaly_detector.py`:
     "anomaly_type": "idle",
     "reason": "Resource appears idle (cpu_avg=1.0%, memory_avg=4.0%, network_pct=1.0%)",
     "suggested_action": "Investigate ownership and consider terminating or hibernating the instance",
-    "confidence": 0.94,
+    "confidence": 0.9,
     "severity": "medium",
     "approach": "rule_based",
     "signals": [
-      "Resource appears idle (cpu_avg=1.0%, memory_avg=4.0%, network_pct=1.0%)",
-      "CPU is consistently low (avg=1.0%, p95=3.0%) while the instance is otherwise active"
+      "Resource appears idle (cpu_avg=1.0%, memory_avg=4.0%, network_pct=1.0%)"
     ]
   },
   {
@@ -329,12 +328,11 @@ These are the verbatim outputs of `python3 anomaly_detector.py`:
     "anomaly_type": "cpu_spiking",
     "reason": "Bursty CPU pattern (avg=8.0%, p95=92.0%) — short spikes against a calm baseline",
     "suggested_action": "Move to a burstable instance family or enable autoscaling on CPU p95",
-    "confidence": 0.78,
+    "confidence": 0.7,
     "severity": "medium",
     "approach": "rule_based",
     "signals": [
-      "Bursty CPU pattern (avg=8.0%, p95=92.0%) — short spikes against a calm baseline",
-      "CPU is consistently low (avg=8.0%, p95=20.0%) while the instance is otherwise active"
+      "Bursty CPU pattern (avg=8.0%, p95=92.0%) — short spikes against a calm baseline"
     ],
     "security_note": "Internet-facing resource with an identity attached — a compromise could pivot into the cloud account"
   }
@@ -343,20 +341,23 @@ These are the verbatim outputs of `python3 anomaly_detector.py`:
 
 ### `--compare` output (truncated)
 
+If `GROQ_API_KEY` is not set, the `llm` column falls back to rule-based output.
+ML output can also vary slightly with different datasets.
+
 ```json
 [
   {
     "resource_id": "i-1",
     "rule_based": { "is_anomalous": true,  "anomaly_type": "over_provisioned",  "confidence": 0.78 },
-    "ml":         { "is_anomalous": true,  "anomaly_type": "over_provisioned",  "confidence": 0.71 },
-    "llm":        { "is_anomalous": true,  "anomaly_type": "over_provisioned",  "confidence": 0.85 },
-    "agreement":  "all_agree"
+    "ml":         { "is_anomalous": false, "anomaly_type": "balanced",          "confidence": 0.54 },
+    "llm":        { "is_anomalous": true,  "anomaly_type": "over_provisioned",  "confidence": 0.78 },
+    "agreement":  "disagreement"
   },
   {
     "resource_id": "i-6",
     "rule_based": { "is_anomalous": false, "anomaly_type": "balanced",          "confidence": 0.70 },
-    "ml":         { "is_anomalous": false, "anomaly_type": "balanced",          "confidence": 0.55 },
-    "llm":        { "is_anomalous": false, "anomaly_type": "balanced",          "confidence": 0.80 },
+    "ml":         { "is_anomalous": false, "anomaly_type": "balanced",          "confidence": 0.05 },
+    "llm":        { "is_anomalous": false, "anomaly_type": "balanced",          "confidence": 0.70 },
     "agreement":  "all_agree"
   }
 ]
